@@ -1,0 +1,17 @@
+# Code
+import requests
+from tkinter import *
+from tkinter import messagebox
+response=requests.get("https://type.fit/api/quotes")
+data=response.json()
+i=0
+def fetch():
+    global data
+    global i
+    text=data[i]["text"]ss
+    author=data[i]["author"]
+    messagebox.showinfo(author,text)
+    i+=1
+    Label1=Label(master,text="Application",font=("Arial",22,"bold")).grid(row=0,column=0)
+Button1=Button(master,text="Generate",command=fetch,padx=35,pady=20).grid(row=1,column=0,columnspan=2)
+master.mainloop()

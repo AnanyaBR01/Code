@@ -1,0 +1,18 @@
+import wikipedia
+def search():
+    data=wikipedia.summary(thing.get(),10)
+    with open("Search_result.txt","w") as file:
+        file.write(data)
+        import os
+        def Open():
+    os.system("Search_result.txt")
+    from tkinter import *
+    master=Tk()
+master.title("Wiki Searcher")
+label1=Label(master,text="Wiki-search",font=("arial",22,"italic bold"),padx=35,pady=15).grid(row=0,column=0)
+label2=Label(master,text="Info to be searched",font=("arial",22,"italic bold"),padx=35,pady=15).grid(row=1,column=0)
+thing=Entry(master)
+button1=Button(master,text="Search and save",padx=35,pady=15,command=search).grid(row=2,column=0)
+button2=Button(master,text="open",padx=35,pady=15,command=Open).grid(row=3,column=0)
+thing.grid(row=1,column=1,ipadx=30,ipady=20)
+master.mainloop()

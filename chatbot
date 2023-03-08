@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <title>Application ChatBot</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body> 
+    <!-- CHAT BAR BLOCK -->
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Welcome to ETE Chatbot
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block"> 
+                <!-- Message Container -->
+                <div class="outer-container">
+                    <div class="chat-container">
+                        <!-- Messages -->
+                        <div id="chatbox">
+                            <h5 id="chat-timestamp"></h5>
+                            <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                        </div>
+
+
+                        <!--Additional Button-->
+
+                        <div class="btn-group">
+                            <div>
+                            <button type="button" id="abt" onclick="displayMessageAbt()" >About ETE</button>
+                            <button type="button" id="vis" onclick="displayMessageVis()">Vision</button>
+                            <button type="button" id="mis" onclick="displayMessageMis()">Mission</button>    
+
+                        <!--Faculty List-->
+                        <div class="dropdown">
+                            <button onclick="myFaculty()" class="dropbtn">Faculty</button>
+                            <div id="myDropdown" class="dropdown-content">
+  
+                                    <a href="https://drive.google.com/file/d/1JWb6uoPqtF-Vax10koz3YuFvftRF8e7W/view?usp=share_link" target = "_blank">Dr N Srinivasa Rao</a>
+                                    <a href="https://drive.google.com/file/d/1Fq7Z7ji5m6aaE560t-vK1RVc7SNw1vBM/view?usp=share_link" target = "_blank">Dr Kanmani B</a>
+                                    <a href="https://drive.google.com/file/d/11C7FjvkZlx5w0j8_zarix8YDJWHUj_4Q/view?usp=share_link" target = "_blank">Dr Rajeshwari hegde</a>
+                                    <a href="https://drive.google.com/file/d/1un7NWWO_R1E45d7lh9BSvbd4vKmRqyaZ/view?usp=share_link" target = "_blank">Dr C Gururaj</a>
+                                    <a href="https://drive.google.com/file/d/1J0u5-XIIgXziskXe8MthKXP_ha0Z54UP/view?usp=share_link" target = "_blank">Dr Prasanna Kumar M.K</a>
+                                    <a href="https://drive.google.com/file/d/18sm4aeQMhMqRlAPcZgsDVfsZErGYviMj/view?usp=share_link" target = "_blank">Dr Manjunath P S</a>
+                                    <a href="https://drive.google.com/file/d/1Axew7Dw2zeafdgIuWwhj58z6bx1sFefy/view?usp=share_link" target = "_blank">Dr Vasantha Lakshmi M </a>
+                                    <a href="https://drive.google.com/file/d/13PHjqzmd-lZ2VSPodR0cSYXBAjo919cH/view?usp=share_link" target = "_blank">Dr Balachandra K </a>
+                                    <a href="https://drive.google.com/file/d/1CPLksK7d6Z4lgUUmYlSIRc1zfa8StIep/view?usp=share_link" target = "_blank">Ambika K</a>
+                                    <a href="https://drive.google.com/file/d/1FU3AKYpwsOJts-2aSGcVFLJyeaLMPHmY/view?usp=share_link" target = "_blank">Archana K</a>
+                                    <a href="https://drive.google.com/file/d/1IKCVPZvTQzIhRb7HQCJhWBmjgWbW_Dfd/view?usp=share_link" target = "_blank">Shreenivas B</a>
+                                    <a href="https://drive.google.com/file/d/1iF661nhp_dBa3rKIkXZnuJecpJTS-1jz/view?usp=share_link" target = "_blank">T AnushaLalitha</a>
+                                    <a href="https://drive.google.com/file/d/17hMfLOCqJuytcsbU3UkPdA9mKBOvffIs/view?usp=share_link" target = "_blank">Pushpavathi K p</a>
+
+                                </div>
+                            </div>
+    
+
+                        <!--Syllabus List-->
+                        <div id="button-container"></div>
+                        <button type="button" id="syl" onclick="displayMessageSyl()">Syllabus</button>    
+
+
+                        <!--Magazine Konnect 2022 and 2023 batch (Faculty edition)-->
+                        <div id="button-container"></div>
+                            <button type="button" id="mag" onclick="displayMessageMag()">Konnect</button> 
+                        
+                            <!--Magazine Konnect 2022 (student batch)-->
+                        <div id="button-container"></div>
+                            <button type="button" id="mag" onclick="displayMessageMag1()">Konnect 2022</button> 
+
+                        <!--Magazine Konnect 2021 batch-->
+                        <div id="button-container"></div>
+                            <button type="button" id="mag" onclick="displayMessageMag2()">Konnect 2021</button> 
+
+                        <!--Magazine Konnect 2020 batch-->
+                        <div id="button-container"></div>
+                            <button type="button" id="mag" onclick="displayMessageMag3()">Konnect 2020</button> 
+
+
+                            <!--Placements 2023-->
+                        <div id="button-container"></div>
+                            <button type="button" id="plac" onclick="displayMessagePlac()">Placements 2023</button> 
+                          
+                            </div>
+                      </div>
+
+
+                      
+                        <!--Messages for about ,vision and mission-->
+                        <div class="button_container" >
+                            <div class="abt_bt_container">
+                                <div class="abt_cst">
+                                    <p id="message" class="about_ete"><span></p> 
+                                    <p id="msgvis" class="about_vis"><span></p>
+                                    <p id="msgmis" class="about_mis"><span></p>
+                                    <p id="msgfac" class="about_fac"><span></p>
+                                    <p id="msgsyl" class="about_syl"><span></p>
+                                    <p id="msgmag1" class="about_mag1"><span></p>                                    
+                                    <p id="msgplac" class="about_plac"><span></p>                                       
+                                    <p id="msgmag2" class="about_mag2"><span></p>  
+                                    <p id="msgmag3" class="about_mag3"><span></p>  
+                                    <p id="msgmag4" class="about_mag4"><span></p>  
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- User input box -->
+                        <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="Tap 'Enter' to send a message">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
+
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div> 
+
+    </div>
+
+    <!--Background functions-->
+                        <!-- Text --> 
+                        <div>
+                            <p>Department of Electronics and Telecommunication Engineering</p>
+
+                        </div>
+
+                        <!--Image-->
+
+                        <div>
+
+                            <img src="image.png" width="1100" />
+                        </div>
+<style>
+.chat-bar-collapsible {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.collapsible {
+    background-color: rgb(82, 151, 255);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 350px;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px 10px 0px 0px;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.full-chat-block {
+    width: 350px;
+    background: white;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    transition: max-height 0.2s ease-out;
+}
+
+.outer-container {
+    min-height: 500px;
+    bottom: 0%;
+    position: relative;
+}
+
+.chat-container {
+    max-height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bar-input-block {
+    display: flex;
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    font-size: 20px;
+}
+
+#chat-icon:hover {
+    opacity: .7;
+}
+
+/* Chat bubbles */
+
+#userInput {
+    width: 75%;
+}
+
+.input-box {
+    float: left;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: white;
+    outline: none
+}
+
+.userText {
+    color: white;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    clear: both;
+}
+
+.userText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #5ca6fa;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards
+}
+
+.botText {
+    color: #000;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+}
+
+.botText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards
+}
+
+.btn-group button {
+    background-color: #355ee6; /* Green background */
+    border : 2px solid black; /* black border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #25a3ec;
+  }
+
+
+  /*customization for dropdown content*/
+  .dropbtn {
+    background-color: #355ee6;
+    color: white;
+    padding: 10px 24px;
+    font-size: 12px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-left: 2px;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+
+ 
+
+@keyframes floatup {
+    from {
+        transform: translateY(14px);
+        opacity: .0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .full-chat-block {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .chat-bar-collapsible {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .collapsible {
+        width: 100%;
+        border: 0px;
+        border-top: 3px solid white;
+        border-radius: 0px;
+    }
+}
+</style>
+<style>
+
+html {
+    scroll-behavior: smooth;
+    font-family: Helvetica, sans-serif, Arial;
+}
+
+body {
+    margin: 0 auto;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 42pt;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #000000;
+    width: 1500px;
+    
+    font-style: italic;
+
+}
+
+</style>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>
+    // Collapsible
+var coll = document.getElementsByClassName("collapsible");
+
+for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+
+    });
+}
+
+function getTime() {
+    let today = new Date();
+    hours = today.getHours();
+    minutes = today.getMinutes();
+
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    let time = hours + ":" + minutes;
+    return time;
+}
+
+// Gets the first message
+function firstBotMessage() {
+    let firstMessage = "Welcome to BMSCE ETE"
+    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+
+    
+
+    let time = getTime();
+
+    $("#chat-timestamp").append(time);
+    document.getElementById("userInput").scrollIntoView(false);
+}
+
+firstBotMessage();
+
+// Retrieves the response
+
+
+
+function displayMessageAbt(){
+    
+document.getElementById("message").innerHTML = "<b>About ETE:</b>" + "The Department of Electronics and Telecommunication Engineering established in the year 1986 offers four year Under Graduate program "+
+"in Telecommunication Engineering. The Under Graduate Electronics and Telecommunication Engineering program is designed to develop the ability to comprehend, design and build"+ 
+"electronic systems that can acquire and process real signals (audio/video/data) for point-to-point communication or broadcast.";
+document.getElementById('message').style.color = 'black';
+document.getElementById('message').style.padding = "4px";
+document.getElementById('message').style.fontSize ="20px";
+document.getElementById('message').style.textAlign = 'left';
+document.getElementById('message').style.fontWeight = 'normal';
+document.getElementById('message').style.fontStyle = "Times New Roman";
+document.getElementById('message').style.backgroundColor="#D3D3D3";
+document.getElementById('message').style.border= "1px solid black";
+
+
+}
+
+
+function displayMessageVis(){
+    
+    document.getElementById("msgvis").innerHTML = "<b> VISION </b>: Our graduates shall be globally competent Engineering professionals";
+    document.getElementById('msgvis').style.padding = "4px";
+    document.getElementById('msgvis').style.fontSize ="20px";
+    document.getElementById('msgvis').style.textAlign = 'left';
+    document.getElementById('msgvis').style.fontWeight = 'normal';
+    document.getElementById('msgvis').style.fontStyle = "Times New Roman";
+    document.getElementById('msgvis').style.backgroundColor="#D3D3D3";
+    document.getElementById('msgvis').style.border= "1px solid black";
+    
+    
+}
+
+function displayMessageMis(){
+    
+    document.getElementById("msgmis").innerHTML = "<b> MISSION </b>: The department will achieve the Vision through:"+ 
+   " • Curriculum designed for holistic development"+
+   " • Effective implementation of the designed curriculum"+
+    "• Active association with Industry, Academia and Alumni"+
+   " • Research leading to publications/patent/start-up"+
+    "• Emphasis on professional ethics, contribution to society and concern for environment";
+    document.getElementById('msgmis').style.padding = "4px";
+    document.getElementById('msgmis').style.fontSize ="20px";
+    document.getElementById('msgmis').style.textAlign = 'left';
+    document.getElementById('msgmis').style.fontWeight = 'normal';
+    document.getElementById('msgmis').style.fontStyle = "Times New Roman";
+    document.getElementById('msgmis').style.backgroundColor="#D3D3D3";
+    document.getElementById('msgmis').style.border= "1px solid black";
+    
+    
+}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFaculty() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function displayMessageSyl() {
+
+  const a = document.createElement('a');
+  a.style.display = 'none';
+  a.href = "https://drive.google.com/file/d/1qut728DeGCgDKwtXggzxI6iFVz-tUCTy/view?usp=share_link";
+  a.target="_blank";
+  a.download = 'ETE Syllabus';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+}
+
+function displayMessageMag() {
+
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = "https://drive.google.com/file/d/16rftMaoLxH_6BeUtSyDvQmu9pc6TE-qR/view?usp=share_link";
+    a.target="_blank";
+    a.download = 'Magazine 2022';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  
+  }
+
+  function displayMessageMag1() {
+
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = "https://drive.google.com/file/d/1JDoGtjiyslmOz2eozOlLX-MYQ28ax5W5/view?usp=share_link";
+    a.target="_blank";
+    a.download = 'Magazine 2022';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  
+}
+
+function displayMessageMag2() {
+
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = "https://drive.google.com/file/d/1gVPOQHCM53IOgPXqN4SA33wzUHgAsymW/view?usp=share_link";
+    a.target="_blank";
+    a.download = 'Magazine 2022';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  
+}
+
+function displayMessageMag3() {
+
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = "https://drive.google.com/file/d/1RJIsjBhryRHbmPaNOTmf7MbiO2DZ82eh/view?usp=share_link";
+    a.target="_blank";
+    a.download = 'Magazine 2022';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  
+}
+
+  function displayMessagePlac() {
+
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = "https://docs.google.com/spreadsheets/d/14r5S8TSX46sCEWY-aYzS6raSdJ3Hisko/edit?usp=share_link&ouid=106518141209597692477&rtpof=true&sd=true";
+    a.target="_blank";
+    a.download = 'Magazine 2022';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  
+  }
+  
+
+
+
+function getHardResponse(userText) {
+    let botResponse = getBotResponse(userText);
+    let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+    $("#chatbox").append(botHtml);
+
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+}
+
+//Gets the text text from the input box and processes it
+function getResponse() {
+    let userText = $("#textInput").val();
+
+    if (userText == "") {
+        userText = "I love Code Palace!";
+    }
+
+    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+
+    setTimeout(() => {
+        getHardResponse(userText);
+    }, 1000)
+
+}
+
+// Handles sending text via button clicks
+function buttonSendText(sampleText) {
+    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+
+    //Uncomment this if you want the bot to respond to this buttonSendText event
+    // setTimeout(() => {
+    //     getHardResponse(sampleText);
+    // }, 1000)
+}
+
+function sendButton() {
+    getResponse();
+}
+
+function heartButton() {
+    buttonSendText("Heart clicked!")
+}
+
+// Press enter to send a message
+$("#textInput").keypress(function (e) {
+    if (e.which == 13) {
+        getResponse();
+    }
+});
+</script>
+
+<script>
+
+
+function getBotResponse(input) {
+
+//Greeting Responses
+if (input == "Hi") {
+    return "Hello! How are you doing ?";
+} else if (input == "Hey") {
+    return "Hey!";
+} else if (input == "Need some help") {
+    return "My Pleasure! How can I help You ?";
+}
+else if (input == "hi") {
+    return "Hey! what's up";
+}
+  else if (input == "Good afternoon") {
+    return "Good afternoon, how can I help you today?";
+}
+else if (input == "Hey, What's up") {
+    return "Good afternoon, how can I help you today?";
+}
+else if (input == "Good morning") {
+    return "Good morning, how can I help you today?";
+}
+else if (input == "Good Morning") {
+    return "Good Morning, how can I help you today?";
+}
+else if (input == "Hi, Good Afternoon") {
+    return "Hey!, Good Afternoon, How can I help You?";
+}
+else if (input == "Bye") {
+    return "Thank you, Talk to you later <3";
+}
+else if (input == "Good Bye") {
+    return "Bye, Have a nice day";
+}
+else if (input == "Good Bye") {
+return "Bye, Have a nice day";
+}
+else if (input == "How is your day") {
+    return "Fanatastic, how about yours ?";
+}
+else if (input == "Good") {
+    return "<3";
+}
+else if (input == "How are you") {
+    return "Good, and U?"; 
+}
+else if (input == "I need help") {
+    return "Yes, How can I help You ?";
+}
+else if (input == "Thank you") {
+    return "<3";
+}
+else if (input == "Hey!") {
+    return "Good Afternoon";
+}
+else if (input == "Hi!") {
+    return "Good Morning, How's your day ?";
+}
+
+
+// Simple Information related to Electronics
+if (input == "Electronics") {
+    return "Electronics is a branch of science that deals with circuits consisting of transistors, resistors, capacitor and other electronic components";
+} else if (input == "Divisions in Electronics") {
+    return "The main divisions in electronics are: AEC, DEC, SAS, LIC, DCM, ACM, WCM and many more";
+} 
+else if (input == "AEC") {
+    return "Analog electronics involves the use of continuous time (analog) signals";
+}else if (input == "ohms law") {
+    return "V = I*R";
+}
+else if(input == 'DEC'){
+    return "Digital electronics uses discrete time signals or two state signals"
+}
+else if(input== "ETE subjects"){ 
+    return "AEC, DEC, LIC, FTH, WCM, MWR, DSP, SAS, VLSI and many more"
+}
+else if(input== "start of ETE department"){
+    return "The Department of Electronics and Telecommunication Engineering established in the year 1986"
+}
+else if(input== "HOD of ETE department"){
+    return "Dr. N Srinivasa Rao"
+}
+else {
+    return "Try asking something else!";
+}
+}
+</script>
+
+</html>
